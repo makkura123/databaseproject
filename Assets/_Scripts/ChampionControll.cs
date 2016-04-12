@@ -8,7 +8,7 @@ using System.Text;
 using Mono.Data.SqliteClient;
 
 public class ChampionControll : MonoBehaviour{
-	// Declare the textfields for Name of champion, pickrate and banrate
+	// Declare the textfields for Name of champion, pickrate and banrate, and champ image
 	[SerializeField]
 	Text
 		_championName;
@@ -19,10 +19,15 @@ public class ChampionControll : MonoBehaviour{
 	Text
 		_banRate;
 
+	[SerializeField]
+	Image
+		_champImg;
+
 	const string _filename = "LeagueDB.s3db";
 	private IDbConnection _dbcon;
 	private IDbCommand _dbcmd;
 	private IDataReader _dbr;
+
 
 	// Function for starting the database connection
 	public void StartConnection (string filename, string query){
@@ -56,6 +61,8 @@ public class ChampionControll : MonoBehaviour{
 	}
 
 	void Start (){
+		// get champ image game object
+
 		// Retrieve active Champion from PlayerPrefs to ask DB about stats
 		string activeChampion = PlayerPrefs.GetString ("Champion");
 
@@ -99,5 +106,23 @@ public class ChampionControll : MonoBehaviour{
 
 		// Close the Database
 		CloseConnection ();
+
+		StartCoroutine(GetChampImageRoutine(activeChampion));
+	}
+
+	IEnumerator GetChampImageRoutine(string champName)
+	{
+		var champImageRequest = new WWW ("http://ddragon.leagueoflegends.com/cdn/6.7.1/img/champion/" + champName + ".png");
+
+		while (!champImageRequest.isDone)
+		{
+			yield return 0;
+		}
+
+		if (champImageRequest.error == null)
+		{
+			var champSprite = Sprite.Create (champImageRequest.texture, new Rect (0, 0, 120, 120), new Vector2 (60, 60));
+			_champImg.sprite = champSprite;
+		}
 	}
 }
