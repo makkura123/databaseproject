@@ -1,15 +1,6 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\_Scripts\ChampionControll.cs">
-    <Files>
-      <File FileName="Assets\_Scripts\ChampionControll.cs" Line="99" Column="13" />
-      <File FileName="Assets\_Scripts\MainMenuController.cs" Line="68" Column="23" />
-      <File FileName="Assets\_Scripts\matchListControl.cs" Line="60" Column="23" />
-      <File FileName="Assets\_Scripts\MatchStatsControll.cs" Line="99" Column="23" />
-      <File FileName="Assets\_Scripts\PlayerControl.cs" Line="125" Column="37" />
-      <File FileName="Assets\_Scripts\TeamController.cs" Line="122" Column="23" />
-    </Files>
-  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>

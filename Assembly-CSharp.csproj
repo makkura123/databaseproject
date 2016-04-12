@@ -6,7 +6,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{E848D26F-634D-586D-4117-6F1770C13308}</ProjectGuid>
+    <ProjectGuid>{B36EB6D7-B346-0A25-CFB4-977DB53658F2}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -61,16 +61,16 @@
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
  <Reference Include="System.Data">
- <HintPath>/Users/BlackCat/Downloads/LeagueOfLegends/Assets/Fonts/System.Data.dll</HintPath>
+ <HintPath>/Users/wilondjamuyoma/Desktop/datebase/databaseproject/Assets/Fonts/System.Data.dll</HintPath>
  </Reference>
  <Reference Include="Mono.Data">
- <HintPath>/Users/BlackCat/Downloads/LeagueOfLegends/Assets/Plugins/Mono.Data.dll</HintPath>
+ <HintPath>/Users/wilondjamuyoma/Desktop/datebase/databaseproject/Assets/Plugins/Mono.Data.dll</HintPath>
  </Reference>
  <Reference Include="Mono.Data.Sqlite">
- <HintPath>/Users/BlackCat/Downloads/LeagueOfLegends/Assets/Plugins/Mono.Data.Sqlite.dll</HintPath>
+ <HintPath>/Users/wilondjamuyoma/Desktop/datebase/databaseproject/Assets/Plugins/Mono.Data.Sqlite.dll</HintPath>
  </Reference>
  <Reference Include="Mono.Data.SqliteClient">
- <HintPath>/Users/BlackCat/Downloads/LeagueOfLegends/Assets/Plugins/Mono.Data.SqliteClient.dll</HintPath>
+ <HintPath>/Users/wilondjamuyoma/Desktop/datebase/databaseproject/Assets/Plugins/Mono.Data.SqliteClient.dll</HintPath>
  </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

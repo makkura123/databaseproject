@@ -4,6 +4,7 @@ using System;
 using System.IO;
 using System.Collections;
 using System.Data;
+using System.Data.SqlClient;
 using System.Text;
 using Mono.Data.SqliteClient;
 
@@ -122,5 +123,20 @@ public class PlayerControl : MonoBehaviour{
 	public void clickOnChampion (){
 		PlayerPrefs.SetString ("Champion", champName);
 		Application.LoadLevel ("championPool");
+	}
+	// INSERT name and everything into a table the is not known
+	public void newPlayer(string name, string inGame, string team, string role, string residency){
+		using (var db = new SqlConnection()) {
+			db.Open();
+
+			var command =
+				new SqlCommand("INSERT INTO dokimastikospinakas (name, inGame, team, role,residency) VALUES (@textValue, @textValue, @textValue, @textValue, @textValue);", db);
+			command.Parameters.AddWithValue("@textValue", name);
+			command.Parameters.AddWithValue("@textValue", inGame);
+			command.Parameters.AddWithValue("@textValue", team);
+			command.Parameters.AddWithValue("@textValue", role);
+			command.Parameters.AddWithValue("@textValue", residency);
+			command.ExecuteNonQuery();
+		}
 	}
 }
