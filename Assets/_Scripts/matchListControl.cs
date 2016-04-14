@@ -25,6 +25,7 @@ public class matchListControl : MonoBehaviour{
 	private IDbConnection _dbcon;
 	private IDbCommand _dbcmd;
 	private IDataReader _dbr;
+
 	
 	// Function for starting the database connection
 	public void StartConnection (string filename, string query){

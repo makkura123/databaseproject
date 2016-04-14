@@ -65,7 +65,9 @@ public class ChampionControll : MonoBehaviour{
 
 		// Retrieve active Champion from PlayerPrefs to ask DB about stats
 		string activeChampion = PlayerPrefs.GetString ("Champion");
-
+	
+		activeChampion = activeChampion.Replace ("'", "''");
+		Debug.Log (activeChampion);
 		// Query is going to return the Name of the Champion, the pickrate and the banrate based on the stats in TeamStats
 		string _query = "Select ('" + activeChampion + "') as ChampionName, " +
 			"Round(CAST(P.Rate as FLOAT)*100/Tot.Num,1) AS PickRate, " +

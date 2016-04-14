@@ -1,5 +1,4 @@
-﻿
-using UnityEngine.UI;
+﻿using UnityEngine.UI;
 using UnityEngine;
 using System;
 using System.IO;

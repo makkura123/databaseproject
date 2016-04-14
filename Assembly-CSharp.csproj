@@ -51,9 +51,10 @@
      <Compile Include="Assets\_Scripts\PlayerControl.cs" />
      <Compile Include="Assets\_Scripts\StartScreenController.cs" />
      <Compile Include="Assets\_Scripts\TeamController.cs" />
+     <Compile Include="Assets\_Scripts\addMatch.cs" />
      <Compile Include="Assets\_Scripts\championPoolControl.cs" />
      <Compile Include="Assets\_Scripts\matchListControl.cs" />
-     <None Include="Assets\Fonts\License.txt" />
+     <None Include="Assets\Fonts\PT_Sans_Narrow\OFL.txt" />
  <Reference Include="UnityEngine.Networking">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
  </Reference>
@@ -61,16 +62,16 @@
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
  <Reference Include="System.Data">
- <HintPath>/Users/wilondjamuyoma/Desktop/datebase/databaseproject/Assets/Fonts/System.Data.dll</HintPath>
+ <HintPath>/Users/BlackCat/databaseproject/Assets/Fonts/System.Data.dll</HintPath>
  </Reference>
  <Reference Include="Mono.Data">
- <HintPath>/Users/wilondjamuyoma/Desktop/datebase/databaseproject/Assets/Plugins/Mono.Data.dll</HintPath>
+ <HintPath>/Users/BlackCat/databaseproject/Assets/Plugins/Mono.Data.dll</HintPath>
  </Reference>
  <Reference Include="Mono.Data.Sqlite">
- <HintPath>/Users/wilondjamuyoma/Desktop/datebase/databaseproject/Assets/Plugins/Mono.Data.Sqlite.dll</HintPath>
+ <HintPath>/Users/BlackCat/databaseproject/Assets/Plugins/Mono.Data.Sqlite.dll</HintPath>
  </Reference>
  <Reference Include="Mono.Data.SqliteClient">
- <HintPath>/Users/wilondjamuyoma/Desktop/datebase/databaseproject/Assets/Plugins/Mono.Data.SqliteClient.dll</HintPath>
+ <HintPath>/Users/BlackCat/databaseproject/Assets/Plugins/Mono.Data.SqliteClient.dll</HintPath>
  </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

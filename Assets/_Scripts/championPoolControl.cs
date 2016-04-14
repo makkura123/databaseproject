@@ -81,6 +81,7 @@ public class championPoolControl : MonoBehaviour {
 
 	// Function to see the champion stats
 	public void see_champion(string champName){
+
 		PlayerPrefs.SetString ("Champion", champName);
 		Application.LoadLevel ("championPool");
 	}

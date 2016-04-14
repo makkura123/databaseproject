@@ -107,6 +107,7 @@ public class PlayerControl : MonoBehaviour{
 
 		// Retrieve Data from DB
 		for (int i = 0; _dbr.Read(); i++) {
+			SummonerName.text = SummonerName.text.Replace ("'", "&apos;");
 			SummonerName.text = _dbr.GetString (0);
 			Role.text = _dbr.GetString (1);
 			Residence.sprite = ResidenceSprite(_dbr.GetString (2));
