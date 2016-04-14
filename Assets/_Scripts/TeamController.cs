@@ -151,7 +151,7 @@ public class TeamController : MonoBehaviour{
 			// Determine which team has won the match
 			string outcome = _dbr.GetString (2);
 
-			if (outcome == "TRUE") {
+			if (outcome == "TRUE" || outcome == "True") {
 				Outcome [j].color = Color.blue;
 				Outcome [j].text = win;
 			} else {

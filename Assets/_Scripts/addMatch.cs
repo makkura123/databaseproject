@@ -6,6 +6,7 @@ using System.Collections;
 using System.Data;
 using System.Text;
 using Mono.Data.SqliteClient;
+using System.Linq;
 
 public class addMatch : MonoBehaviour
 {
@@ -201,18 +202,22 @@ public class addMatch : MonoBehaviour
 	{
 		string query;
 		teamStats = true;
+		string ban1 = normalizeChampName(Ban1.text);
+		string ban2 = normalizeChampName(Ban2.text);
+		string ban3 = normalizeChampName(Ban3.text);
 
 		if (Won.isOn)
 			wonMatch = true;
 		else
 			wonMatch = false;
+		Debug.Log (Won.isOn);
 
 		if (!team1finished) {
 			query = @"INSERT INTO TeamStats(MatchID, TeamID,Kills,Deaths,Assists,Gold,Dragons,Barons,Towers,Won,Ban1,Ban2,Ban3)" +
-			" SELECT " + MatchHolder + ", (Select ID FROM Teams WHERE TeamName = '" + TeamName.text + "')," + Kills.text + "," + Deaths.text + ","
+				" SELECT " + MatchHolder + ", (Select ID FROM Teams WHERE Abbreviation = '" + TeamName.text + "')," + Kills.text + "," + Deaths.text + ","
 			+ Assists.text + "," + Gold.text + "," + Dragons.text + "," + Barons.text + "," + Towers.text + ",'" + wonMatch.ToString () + "',(SELECT ChampID\n" +
-			"FROM Champions\n Where ChampionName = '" + Ban1.text + "'),(SELECT ChampID\nFROM Champions\n" +
-			" Where ChampionName = '" + Ban2.text + "'),(SELECT ChampID\nFROM Champions\n Where ChampionName = '" + Ban3.text + "');";
+			"FROM Champions\n Where ChampionName = '" + ban1 + "'),(SELECT ChampID\nFROM Champions\n" +
+			" Where ChampionName = '" + ban2 + "'),(SELECT ChampID\nFROM Champions\n Where ChampionName = '" + ban3 + "');";
 
 			StartConnection (_filename, query);
 			team1finished = true;
@@ -236,13 +241,13 @@ public class addMatch : MonoBehaviour
 		} else {
 			Debug.Log (teamNameHolder);
 			query = @"INSERT INTO PlayedBy(MatchID, RedTeamID,BlueTeamID)" + 
-				" SELECT " + MatchHolder + ", (Select ID FROM Teams WHERE TeamName = '" + teamNameHolder + "'), " +
-				"(Select ID FROM Teams WHERE TeamName = '" + TeamName.text+ "');\n" +
+				" SELECT " + MatchHolder + ", (Select ID FROM Teams WHERE Abbreviation = '" + teamNameHolder + "'), " +
+				"(Select ID FROM Teams WHERE Abbreviation = '" + TeamName.text+ "');\n" +
 				"INSERT INTO TeamStats(MatchID, TeamID,Kills,Deaths,Assists,Gold,Dragons,Barons,Towers,Won,Ban1,Ban2,Ban3)" +
-				" SELECT " + MatchHolder + ", (Select ID FROM Teams WHERE TeamName = '" + TeamName.text + "')," + Kills.text + "," + Deaths.text + ","
+				" SELECT " + MatchHolder + ", (Select ID FROM Teams WHERE Abbreviation = '" + TeamName.text + "')," + Kills.text + "," + Deaths.text + ","
 				+ Assists.text + "," + Gold.text + "," + Dragons.text + "," + Barons.text + "," + Towers.text + ",'" + wonMatch.ToString () + "',(SELECT ChampID\n" +
-				"FROM Champions\n Where ChampionName = '" + Ban1.text + "'),(SELECT ChampID\nFROM Champions\n" +
-				" Where ChampionName = '" + Ban2.text + "'),(SELECT ChampID\nFROM Champions\n Where ChampionName = '" + Ban3.text + "');";
+				"FROM Champions\n Where ChampionName = '" + ban1 + "'),(SELECT ChampID\nFROM Champions\n" +
+				" Where ChampionName = '" + ban2 + "'),(SELECT ChampID\nFROM Champions\n Where ChampionName = '" + ban3 + "');";
 
 			StartConnection (_filename, query);
 			team1finished = false;
@@ -264,13 +269,22 @@ public class addMatch : MonoBehaviour
 	
 	}
 
+	string normalizeChampName(string champName){
+		champName = champName.Replace ("'", "''");
+		return champName;
+	}
+
 	public void enterPlayerStats(){
 		teamStats = false;
 		string query;
+		string champName = normalizeChampName(ChampionName.text);
+
+		Debug.Log (champName);
+
 		query = @"INSERT INTO PlayerStats(PlayerID,MatchID,Kills,Deaths,Assists,CreepScore,ChampionID, Gold)   
 		SELECT (Select PlayerID FROM Players WHERE SummonerName = '"+ SummonerName.text + "'),"+ MatchHolder+"," +
 			PKills.text + ","+ PDeaths.text + ","+ PAssists.text + "," + Creeps.text +", (SELECT ChampID\nFROM Champions\n" +
-			"Where ChampionName = '" + ChampionName.text +"'),"+ PGold.text + ";";
+			"Where ChampionName = '" + champName +"'),"+ PGold.text + ";";
 		StartConnection (_filename, query);
 		CloseConnection ();
 		playerCounter++;

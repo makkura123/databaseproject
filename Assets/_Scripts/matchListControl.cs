@@ -88,8 +88,10 @@ public class matchListControl : MonoBehaviour{
 			// Retrieve the outcome in form of a string
 			string outcome1 = _dbr.GetString (2);
 
+
+
 			// if the blue team won, the color of the textfield is set to blue, otherwise red
-			if (outcome1 == "TRUE")
+			if (outcome1 == "TRUE" || outcome1 == "True")
 				Team1Name [i].color = Color.blue;
 			else
 				Team1Name [i].color = Color.red;
@@ -98,7 +100,7 @@ public class matchListControl : MonoBehaviour{
 			Team2Names [i].text = _dbr.GetString (3);
 			string outcome2 = _dbr.GetString (4);
 			
-			if (outcome2 == "TRUE")
+			if (outcome2 == "TRUE" || outcome2 == "True")
 				Team2Names [i].color = Color.blue;
 			else
 				Team2Names [i].color = Color.red;

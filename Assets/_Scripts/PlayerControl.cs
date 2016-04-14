@@ -141,7 +141,7 @@ public class PlayerControl : MonoBehaviour{
 			return ResidenceSprites [7];
 		else if (resName == "Netherlands")
 			return ResidenceSprites [8];
-		else if (resName == "Philippines")
+		else if (resName == "Philipines")
 			return ResidenceSprites [9];
 		else if (resName == "Romania")
 			return ResidenceSprites [10];

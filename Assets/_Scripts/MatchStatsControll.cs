@@ -142,7 +142,10 @@ public class MatchStatsControll : MonoBehaviour
 			TeamNames [1].text = Team2;
 
 			string outcome = _dbr.GetString (2);
-			if (outcome == "TRUE") {
+			Debug.Log (outcome);
+			Debug.Log (TeamNames [i].text);
+
+			if (outcome == "TRUE" || outcome == "True") {
 				TeamNames [0].color = Color.blue;
 				TeamNames [1].color = Color.red;
 			} else {

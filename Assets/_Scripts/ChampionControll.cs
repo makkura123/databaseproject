@@ -6,6 +6,7 @@ using System.Collections;
 using System.Data;
 using System.Text;
 using Mono.Data.SqliteClient;
+using System.Linq;
 
 public class ChampionControll : MonoBehaviour{
 	// Declare the textfields for Name of champion, pickrate and banrate, and champ image
@@ -114,6 +115,15 @@ public class ChampionControll : MonoBehaviour{
 
 	IEnumerator GetChampImageRoutine(string champName)
 	{
+		champName = champName.Replace ("'", "");
+		champName = champName.Replace (".", "");
+		champName = champName.Replace (" ", "");
+
+		// For some reason Riot API has an issue with chogath....
+		if (champName == "ChoGath")
+			champName = new String(champName.Select((ch, index) => (index == 0) ? ch : Char.ToLower(ch)).ToArray());
+
+		Debug.Log (champName);
 		var champImageRequest = new WWW ("http://ddragon.leagueoflegends.com/cdn/6.7.1/img/champion/" + champName + ".png");
 
 		while (!champImageRequest.isDone)
